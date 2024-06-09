@@ -5,6 +5,7 @@ use crate::c_err;
 
 #[wasm_bindgen(js_name = _clg_LogLevel)]
 /// LogLevel and `log::LevelFilter` can be converted to each other.
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Debug, Hash)]
 pub enum LogLevel {
     Off,
     Error,

@@ -2,7 +2,6 @@
 //!
 //! Go to the [git repository](https://github.com/2moe/clg) for more information.
 //!
-//!
 //
 
 #[cfg(not(all(
@@ -42,8 +41,15 @@ mod logger;
 #[cfg(feature = "logger")]
 /// A logger used to output logs to the web console.
 #[wasm_bindgen(js_name = _clg_ConsoleLogger)]
-#[derive(Debug, Clone, Copy)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Debug, Hash)]
 pub struct ConsoleLogger(log::LevelFilter);
+
+/// Gets the time of the current timezone offset. If the acquisition fails, fallback to UTC time.
+#[cfg(feature = "logger")]
+pub fn get_offset_time() -> time::OffsetDateTime {
+    use time::OffsetDateTime as offset;
+    offset::now_local().unwrap_or_else(|_| offset::now_utc())
+}
 
 #[cfg(feature = "logger")]
 // #[cfg(test)]

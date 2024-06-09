@@ -1,4 +1,4 @@
-use crate::{logger::get_offset_time, ConsoleLogger};
+use crate::{get_offset_time, ConsoleLogger};
 use log::{Level, Metadata, Record};
 
 impl log::Log for ConsoleLogger {

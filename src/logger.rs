@@ -1,13 +1,6 @@
 use super::ConsoleLogger;
 use crate::{c_err, log_level::LogLevel};
-use time::OffsetDateTime;
 use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
-
-/// Gets the time of the current timezone offset. If the acquisition fails, fallback to UTC time.
-pub fn get_offset_time() -> OffsetDateTime {
-    use OffsetDateTime as offset;
-    offset::now_local().unwrap_or_else(|_| offset::now_utc())
-}
 
 #[wasm_bindgen(js_class = _clg_ConsoleLogger)]
 impl ConsoleLogger {
