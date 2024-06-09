@@ -41,7 +41,7 @@ pub fn new_log_level(s: &str) -> LogLevel {
     use core::str::FromStr;
     LevelFilter::from_str(s)
         .unwrap_or_else(|e| {
-            const MSG: &str = "Failed to create ConsoleLogger";
+            const MSG: &str = "Failed to parse &str to LevelFilter";
             c_err!(
                 "[ERROR] {module}:{line} {e}\nPanic: {MSG}",
                 module = module_path!(),
