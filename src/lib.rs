@@ -1,12 +1,21 @@
-// #![cfg(not(all(
-//     any(target_arch = "wam32", target_arch = "wasm64"),
-//     target_os = "unknown"
-// )))]
-
 //! A logger specifically designed for wasm32-unknown-unknown.
 //!
 //! Go to the [git repository](https://github.com/2moe/clg) for more information.
 //!
+//!
+//
+
+#[cfg(not(all(
+    any(target_arch = "wam32", target_arch = "wasm64"),
+    target_os = "unknown"
+)))]
+pub const SUPPORTED: bool = false;
+
+#[cfg(all(
+    any(target_arch = "wam32", target_arch = "wasm64"),
+    target_os = "unknown"
+))]
+pub const SUPPORTED: bool = true;
 
 /// web console
 pub mod console;
