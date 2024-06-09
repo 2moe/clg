@@ -4,7 +4,7 @@ A logger specifically designed for wasm32-unknown-unknown.
 
 [![crates.io](<https://img.shields.io/crates/v/clg.svg?label=lib(clg)>)](https://crates.io/crates/clg)
 
-[![Documentation](https://img.shields.io/docsrs/clg?label=docs.rs)](https://docs.rs/clg)    [![Apache-2 licensed](https://img.shields.io/crates/l/clg.svg)](../License)
+[![Documentation](https://img.shields.io/docsrs/clg?label=docs.rs)](https://docs.rs/clg)    [![Apache-2 licensed](https://img.shields.io/crates/l/clg)](../License)
 
 | Languages/語言         | ID         |
 | ---------------------- | ---------- |
