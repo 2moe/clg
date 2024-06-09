@@ -80,7 +80,7 @@ crate-type = ["cdylib"]
 [dependencies]
 wasm-bindgen = "0.2.92"
 log = { version = "0.4.21", features = ["std"] }
-clg = 0.0.0
+clg = "0.0.0"
 # js-sys = "0.3.69"
 # web-sys = "0.3.69"
 ```
