@@ -1,7 +1,7 @@
 use log::LevelFilter;
 use wasm_bindgen::prelude::wasm_bindgen;
 
-use crate::c_err;
+use crate::c_warn;
 
 #[wasm_bindgen(js_name = _clg_LogLevel)]
 /// LogLevel and `log::LevelFilter` can be converted to each other.
@@ -37,19 +37,20 @@ pub enum LogLevel {
 /// const level = wasm._clg_newLogLevel("warn");
 /// ```
 #[wasm_bindgen(js_name = _clg_newLogLevel)]
-pub fn new_log_level(s: &str) -> LogLevel {
+pub fn new_log_level(s: &str) -> Option<LogLevel> {
     use core::str::FromStr;
+
     LevelFilter::from_str(s)
-        .unwrap_or_else(|e| {
+        .inspect_err(|e| {
             const MSG: &str = "Failed to parse &str to LevelFilter";
-            c_err!(
-                "[ERROR] {module}:{line} {e}\nPanic: {MSG}",
+            c_warn!(
+                "[WARN] {module}:{line} {e}\n  {MSG}",
                 module = module_path!(),
                 line = line!()
             );
-            panic!("{MSG}")
         })
-        .into()
+        .ok()
+        .map(|x| x.into())
 }
 
 impl From<LogLevel> for LevelFilter {
