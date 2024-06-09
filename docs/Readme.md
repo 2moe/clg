@@ -17,6 +17,9 @@ A logger specifically designed for wasm32-unknown-unknown.
 
 A: Output logs to the Web/Node.js/Deno console in Rust.
 
+![Screenshot_2024-06-09__09-54-09](https://github.com/2moe/clg/assets/25324935/49c23c65-e9de-4cb0-aa57-7a3e51076778)
+![Screenshot_2024-06-09__06-23-49](https://github.com/2moe/clg/assets/25324935/7873a1cc-9764-48b6-861d-b8f9d03693d0)
+
 ### Q: Why not use the standard library directly?
 
 A: For **wasm32-wasi**, we can directly use Rust std's `eprintln`, as well as the regular logger.

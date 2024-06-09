@@ -15,7 +15,10 @@
 
 ### Q: 这玩意儿有什么用？
 
-A: 方便用 rust 将日志输出到 Web/Node.js/Deno 的控制台。
+A: 用 rust 将日志输出到 Web/Node.js/Deno 的控制台。
+
+![rust-code](https://github.com/2moe/clg/assets/25324935/49c23c65-e9de-4cb0-aa57-7a3e51076778)
+![js-glue](https://github.com/2moe/clg/assets/25324935/7873a1cc-9764-48b6-861d-b8f9d03693d0)
 
 ### Q: 为什么不直接用标准库？
 
