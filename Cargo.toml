@@ -1,0 +1,36 @@
+[package]
+name = "clg"
+version = "0.0.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "A logger specifically designed for wasm32-unknown-unknown."
+readme = "docs/Readme.md"
+repository = "https://github.com/2moe/clg"
+authors = ["2moe <m@tmoe.me>"]
+categories = ["wasm"]
+# cargo package --allow-dirty -l
+exclude = ["tmp", "tmp.*"]
+
+[features]
+default = [
+    #
+    "logger",
+]
+logger = ["dep:owo-colors", "dep:log", "dep:time", "dep:wasm-bindgen"]
+
+[dependencies]
+# js-sys = "0.3.69"
+log = { version = "0.4.21", features = ["std"], optional = true }
+owo-colors = { version = "4.0.0", optional = true }
+time = { version = "0.3.36", optional = true, default-features = false, features = [
+    "local-offset",
+    "wasm-bindgen",
+] }
+wasm-bindgen = { version = "0.2.92", optional = true }
+web-sys = { version = "0.3.69", default-features = false, features = [
+    "console",
+] }
+
+[package.metadata.docs.rs]
+all-features = true
+targets = ["wasm32-unknown-unknown"]
