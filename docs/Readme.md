@@ -145,7 +145,7 @@ pub fn init_logger() {
 Compile and package:
 
 ```sh
-# You can change nodejs to deno, and finally use deno to execute wasm.js
+# You can change nodejs to deno, and finally use deno to execute
 wasm-pack build --release --target nodejs --out-dir pkg --out-name wasm
 ```
 

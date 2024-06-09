@@ -145,7 +145,7 @@ pub fn init_logger() {
 编译与打包:
 
 ```sh
-# 您可以将 nodejs 改成 deno，最后用 deno 来执行 wasm.js
+# 您可以将 nodejs 改成 deno，最后用 deno 来执行
 wasm-pack build --release --target nodejs --out-dir pkg --out-name wasm
 ```
 
