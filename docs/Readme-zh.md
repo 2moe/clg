@@ -15,7 +15,7 @@
 
 ### Q: 这玩意儿有什么用？
 
-A: 方便 rust 将日志输出到 Web/Node.js/Deno 的控制台。
+A: 方便用 rust 将日志输出到 Web/Node.js/Deno 的控制台。
 
 ### Q: 为什么不直接用标准库？
 

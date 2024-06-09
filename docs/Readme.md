@@ -15,7 +15,7 @@ A logger specifically designed for wasm32-unknown-unknown.
 
 ### Q: What is this used for?
 
-A: It's convenient for Rust to output logs to the Web/Node.js/Deno console.
+A: Output logs to the Web/Node.js/Deno console in Rust.
 
 ### Q: Why not use the standard library directly?
 
