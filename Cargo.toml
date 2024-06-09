@@ -9,7 +9,7 @@ repository = "https://github.com/2moe/clg"
 authors = ["2moe <m@tmoe.me>"]
 categories = ["wasm"]
 # cargo package --allow-dirty -l
-exclude = ["tmp", "tmp.*"]
+exclude = ["tmp", "tmp.*", "Cargo.lock"]
 
 [features]
 default = [
