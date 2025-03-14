@@ -6,7 +6,7 @@
 
 [![Documentation](https://img.shields.io/docsrs/clg?label=docs.rs)](https://docs.rs/clg)    [![Apache-2 licensed](https://img.shields.io/crates/l/clg)](../License)
 
-| Languages/語言         | ID         |
+| Language/語言          | ID         |
 | ---------------------- | ---------- |
 | 中文                   | zh-Hans-CN |
 | [English](./Readme.md) | en-Latn-US |
@@ -17,7 +17,34 @@
 
 A: 用 rust 将日志输出到 Web/Node.js/Deno 的控制台。
 
+rust:
+
+```rust
+  #[wasm_bindgen(js_name = __clgTestLogger)]
+  pub fn test_logger() {
+    use log::*;
+    trace!("Trace");
+    debug!("DBG");
+    info!("information");
+    warn!("warning");
+    error!("panic");
+  }
+```
+
 ![rust-code](https://github.com/2moe/clg/assets/25324935/49c23c65-e9de-4cb0-aa57-7a3e51076778)
+
+js:
+
+```js
+const wasm = require("/path/to/your_wasm_glue.js")
+
+const logLevel = wasm._clgNewLogLevel("debug")
+
+const initLogger = new wasm._clgConsoleLogger(logLevel)
+
+wasm.__clgTestLogger()
+```
+
 ![js-glue](https://github.com/2moe/clg/assets/25324935/7873a1cc-9764-48b6-861d-b8f9d03693d0)
 
 ### Q: 为什么不直接用标准库？
@@ -68,8 +95,7 @@ console.error(`${msg1} ${msg2}`)
 ### Step1. 安装 wasm-pack
 
 ```sh
-cargo install cargo-binstall
-cargo binstall wasm-pack
+cargo install wasm-pack
 ```
 
 ### Step2. 添加依赖
@@ -156,7 +182,7 @@ wasm-pack build --release --target nodejs --out-dir pkg --out-name wasm
 const wasm = require("../pkg/wasm.js");
 
 const _init = wasm.initLogger();
-wasm._clg_testLogger();
+wasm.__clgTestLogger();
 ```
 
 最后，使用 nodejs 运行 index.cjs:
@@ -182,11 +208,11 @@ use clg::ConsoleLogger as _;
 ```js
 const wasm = require("../pkg/wasm.js");
 
-// const lv = wasm._clg_LogLevel.Warn;
-const lv = wasm._clg_newLogLevel("debug");
-const _init = new wasm._clg_ConsoleLogger(lv);
+// const lv = wasm._clgLogLevel.Warn;
+const lv = wasm._clgNewLogLevel("debug");
+const _init = new wasm._clgConsoleLogger(lv);
 
-wasm._clg_testLogger();
+wasm.__clgTestLogger();
 ```
 
 运行:

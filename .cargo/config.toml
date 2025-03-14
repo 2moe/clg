@@ -1,0 +1,21 @@
+[alias]
+ta = [
+    "test",
+    "--target=wasm32-unknown-unknown",
+    "--all-features",
+    # "--workspace",
+]
+
+open-doc = [
+    "test",
+    # "--package",
+    # "tests",
+    "--test",
+    "doc",
+    "--all-features",
+    "--",
+    "build_and_open_rust_doc",
+    "--exact",
+    "--show-output",
+    "--ignored",
+]

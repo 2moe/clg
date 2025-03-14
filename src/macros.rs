@@ -1,7 +1,8 @@
 //!
 //! ---
 //!
-//! Due to some browsers not supporting `console.debug()`, there is no `c_dbg!` macro.
+//! Due to some browsers not supporting `console.debug()`, there is no `c_dbg!`
+//! macro.
 //!
 //!
 //! - [clg!](clg) `console.log()`
@@ -9,7 +10,6 @@
 //! - [c_warn!](c_warn) `console.warn()`
 //! - [c_info!](c_info) `console.info()`
 //! - [c_trace!](c_trace) `console.trace()`
-//!
 
 /// Outputs messages to web console.
 ///

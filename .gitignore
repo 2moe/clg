@@ -1,32 +1,50 @@
 # black list
 /*
-node_modules
-.node_modules
 target
 tmp
 tmp.*
-desktop.ini
-.DS_Store
+tmp__.*
+
+## traditional linux & .*BSD$
 .directory
+LOST.DIR
+.Trash-*
+## android
+.thumbnails*
+# .nomedia
+## macOS
+.DS_Store
+Icon?
+.Spotlight-V100
+.fseventsd
+.Trashes/
+.apDisk
+.TemporaryItems/
+## windows
+desktop.ini
 Thumbs.db
+Thumbs.db:encryptable
+$RECYCLE.BIN/
+~$*.tmp
+
 perf.data
 perf.data.old
 flamegraph.svg
-/lib/bs
 
 # white list
-!/assets
-!/.git*
-!/LICENSE*
-!/License
-!/Copyright
-!/Readme.*
 !/src
-!/lib
-!/action.yml
-!/pnpm-lock.yaml
-!/*.json
-!/Cargo*
+!/.cargo
+!/Cargo.toml
+!/Cargo.lock
+!/.rustfmt.toml
+!/rust-toolchain.toml
+!/License
+!/LICENSE*
 !/docs
-!/js
-!/dist
+!/Readme*.md
+!/.git*
+!/build.rs
+!/tests
+!/examples
+!/assets
+# !/crates

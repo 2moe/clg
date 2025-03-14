@@ -6,7 +6,7 @@ A logger specifically designed for wasm32-unknown-unknown.
 
 [![Documentation](https://img.shields.io/docsrs/clg?label=docs.rs)](https://docs.rs/clg)    [![Apache-2 licensed](https://img.shields.io/crates/l/clg)](../License)
 
-| Languages/語言         | ID         |
+| Language/語言          | ID         |
 | ---------------------- | ---------- |
 | English                | en-Latn-US |
 | [中文](./Readme-zh.md) | zh-Hans-CN |
@@ -17,8 +17,35 @@ A logger specifically designed for wasm32-unknown-unknown.
 
 A: Output logs to the Web/Node.js/Deno console in Rust.
 
-![Screenshot_2024-06-09__09-54-09](https://github.com/2moe/clg/assets/25324935/49c23c65-e9de-4cb0-aa57-7a3e51076778)
-![Screenshot_2024-06-09__06-23-49](https://github.com/2moe/clg/assets/25324935/7873a1cc-9764-48b6-861d-b8f9d03693d0)
+rust:
+
+```rust
+  #[wasm_bindgen(js_name = __clgTestLogger)]
+  pub fn test_logger() {
+    use log::*;
+    trace!("Trace");
+    debug!("DBG");
+    info!("information");
+    warn!("warning");
+    error!("panic");
+  }
+```
+
+![rust-code](https://github.com/2moe/clg/assets/25324935/49c23c65-e9de-4cb0-aa57-7a3e51076778)
+
+js:
+
+```js
+const wasm = require("/path/to/your_wasm_glue.js")
+
+const logLevel = wasm._clgNewLogLevel("debug")
+
+const initLogger = new wasm._clgConsoleLogger(logLevel)
+
+wasm.__clgTestLogger()
+```
+
+![js-glue](https://github.com/2moe/clg/assets/25324935/7873a1cc-9764-48b6-861d-b8f9d03693d0)
 
 ### Q: Why not use the standard library directly?
 
@@ -68,8 +95,7 @@ For more usage instructions, see below.
 ### Step1. Install wasm-pack
 
 ```sh
-cargo install cargo-binstall
-cargo binstall wasm-pack
+cargo install wasm-pack
 ```
 
 ### Step2. Add Deps
@@ -156,7 +182,7 @@ wasm-pack build --release --target nodejs --out-dir pkg --out-name wasm
 const wasm = require("../pkg/wasm.js");
 
 const _init = wasm.initLogger();
-wasm._clg_testLogger();
+wasm.__clgTestLogger();
 ```
 
 Finally, run index.cjs with nodejs:
@@ -182,11 +208,11 @@ use clg::ConsoleLogger as _;
 ```js
 const wasm = require("../pkg/wasm.js");
 
-// const lv = wasm._clg_LogLevel.Warn;
-const lv = wasm._clg_newLogLevel("debug");
-const _init = new wasm._clg_ConsoleLogger(lv);
+// const lv = wasm._clgLogLevel.Warn;
+const lv = wasm._clgNewLogLevel("debug");
+const _init = new wasm._clgConsoleLogger(lv);
 
-wasm._clg_testLogger();
+wasm.__clgTestLogger();
 ```
 
 Run:
