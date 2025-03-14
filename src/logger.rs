@@ -127,6 +127,7 @@ impl ConsoleLogger {
     use crate::console::*;
     let o = content;
     match level {
+      0 => {}
       1 => err(o),
       2 => warn(o),
       3 | 4 => info(o),
