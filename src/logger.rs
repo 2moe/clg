@@ -123,7 +123,7 @@ impl ConsoleLogger {
   /// let lv = LogLevel::Debug;
   /// output(lv as _, "dbg message")
   /// ```
-  pub fn output(level: u8, content: &str) {
+  pub fn output(level: u8, content: JsValue) {
     use crate::console::*;
     let o = content;
     match level {

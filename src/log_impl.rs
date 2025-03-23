@@ -37,14 +37,14 @@ impl log::Log for ConsoleLogger {
     };
 
     let fmt_str = format!(
-            "{hour:02}:{min:02}:{sec:02}.{ms:03}{offset_str} [{colored_lv}] {module}:{line} {args}",
-            hour = now.hour(),
-            min = now.minute(),
-            sec = now.second(),
-            ms = now.millisecond(),
-            args = r.args()
-        );
-    Self::output(lv as _, &fmt_str);
+      "{hour:02}:{min:02}:{sec:02}.{ms:03}{offset_str} [{colored_lv}] {module}:{line} {args}",
+      hour = now.hour(),
+      min = now.minute(),
+      sec = now.second(),
+      ms = now.millisecond(),
+      args = r.args()
+    );
+    Self::output(lv as _, fmt_str.into());
   }
 
   fn flush(&self) {}

@@ -40,7 +40,7 @@ const wasm = require("/path/to/your_wasm_glue.js")
 
 const logLevel = wasm._clgNewLogLevel("debug")
 
-const initLogger = new wasm._clgConsoleLogger(logLevel)
+const _initLogger = new wasm._clgConsoleLogger(logLevel)
 
 wasm.__clgTestLogger()
 ```
@@ -107,11 +107,9 @@ cargo install wasm-pack
 crate-type = ["cdylib"]
 
 [dependencies]
-wasm-bindgen = "0.2.92"
-log = { version = "0.4.21", features = ["std"] }
-clg = "0.0.2"
-# js-sys = "0.3.69"
-# web-sys = "0.3.69"
+wasm-bindgen = "0.2"
+log = { version = "0.4", features = ["std"] }
+clg = "0.0.5"
 ```
 
 ### Step3. Configure Logger
