@@ -36,5 +36,6 @@ rustdoc-args = ["--cfg", "__unstable_doc"]
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(__unstable_doc)'] }
 
-[dev-dependencies]
-testutils = "0.0.5"
+[dev-dependencies.testutils]
+path = "../../../data/git/sa/testutils/"
+version = "0.0.5"

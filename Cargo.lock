@@ -235,8 +235,6 @@ checksum = "55937e1799185b12863d447f42597ed69d9928686b8d88a1df17376a097d8369"
 [[package]]
 name = "testutils"
 version = "0.0.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4fd2680e9241a7a593685fbda4ea64b22f0accb4c98cf841c6a845ba3578af8"
 dependencies = [
  "compact_str",
  "getset",

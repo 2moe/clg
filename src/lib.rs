@@ -1,3 +1,5 @@
+#![cfg_attr(__unstable_doc, feature(doc_auto_cfg, doc_notable_trait))]
+
 //! A logger specifically designed for wasm32-unknown-unknown.
 //!
 //! Go to the [git repository](https://github.com/2moe/clg) for more information.
